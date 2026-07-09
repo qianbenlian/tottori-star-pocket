@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tottori Star Pocket - 3D Planetarium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        #canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        #info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 10;
+        }
+
+        #info p {
+            margin: 5px 0;
+        }
+
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 12px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .permission-request {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            z-index: 100;
+            display: none;
+        }
+
+        .permission-request button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .permission-request button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <div id="info">
+        <p><strong>Tottori Star Pocket</strong></p>
+        <p>時刻: <span id="time">--:--:--</span></p>
+        <p>位置: 鳥取砂丘</p>
+        <p id="orientation">向き: 初期化中...</p>
+    </div>
+
+    <div id="controls">
+        <p>🔄 スマートフォン・タブレットを動かしてください</p>
+        <p>デバイスの向きで星空が動きます</p>
+    </div>
+
+    <div id="permissionRequest" class="permission-request">
+        <p>このアプリはデバイスの向き情報を使用します</p>
+        <button onclick="requestPermission()">許可する</button>
+    </div>
+
+    <!-- Three.js ライブラリ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- メインスクリプト -->
+    <script src="js/main.js"></script>
+    <script src="js/deviceControl.js"></script>
+    <script src="js/stars.js"></script>
+</body>
+</html>

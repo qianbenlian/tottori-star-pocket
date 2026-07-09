@@ -1,2 +1,65 @@
-# tottori-star-pocket
-3D Planetarium Web App - View starry sky from Tottori Sand Dunes
+# Tottori Star Pocket 🌟
+
+鳥取の砂丘の馬の背から星空を見ているようなプラネタリウムのWebアプリです。
+
+## 機能
+
+- 🌌 **3D 星空表示** - Three.js を使用した立体的な星空表現
+- 📱 **デバイス連動** - スマートフォン・タブレットの傾きで星空が動きます
+- ⏰ **リアルタイム表示** - 現在時刻の星空を表示
+- 🗺️ **鳥取砂丘ベース** - 鳥取砂丘の座標を基準とした星座計算
+
+## 使用方法
+
+### ブラウザで開く
+
+```bash
+# ローカルサーバーを起動
+npx http-server
+```
+
+その後、ブラウザで `http://localhost:8080` にアクセスしてください。
+
+### スマートフォン・タブレット
+
+1. デバイスのWebブラウザでアプリにアクセス
+2. 「許可する」ボタンをタップ（iOS の場合）
+3. デバイスを動かして星空を探索！
+
+## 技術スタック
+
+- **Three.js** - 3D描画ライブラリ
+- **JavaScript (Vanilla)** - フレームワーク不要のシンプル実装
+- **Device Orientation API** - デバイス向き検出
+- **WebGL** - GPU 高速描画
+
+## ファイル構成
+
+```
+tottori-star-pocket/
+├── index.html              # メインページ
+├── js/
+│   ├── main.js            # 3D シーン制御
+│   ├── deviceControl.js   # デバイス傾き検出
+│   └── stars.js           # 星データと天文計算
+├── data/
+│   └── stars.json         # 星カタログ（将来追加）
+└── README.md
+```
+
+## 今後の予定
+
+- [ ] Hipparcos カタログの完全版データ追加
+- [ ] 星座線の表示
+- [ ] 惑星の表示
+- [ ] 月の表示
+- [ ] GPS による自動位置検出
+- [ ] 異なる時間帯・日付の星空表示
+
+## ライセンス
+
+MIT License
+
+## 作者
+
+qianbenlian
